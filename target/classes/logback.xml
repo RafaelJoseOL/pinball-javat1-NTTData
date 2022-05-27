@@ -1,0 +1,27 @@
+<configuration>
+	<timestamp key="dateWithHour"
+		datePattern="dd-MM-yyyy_HH-mm-ss" />
+
+	<appender name="console"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{HH:mm:ss} [%thread] %-4level --- [%method] --- %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="file"
+		class="ch.qos.logback.core.FileAppender">
+		<file>C://Logback//ficheroSalida-${dateWithHour}.log</file>
+
+		<encoder>
+			<pattern>%date{HH:mm:ss} [%thread] %-4level --- [%method] --- %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<root level="debug">
+		<appender-ref ref="console" />
+		<appender-ref ref="file" />
+	</root>	
+</configuration>
